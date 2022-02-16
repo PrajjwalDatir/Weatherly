@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
 	onChange: (str: string) => void;
 	placeholder: string;

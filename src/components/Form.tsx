@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FC } from "react";
 import Input from "./Input";
 const Form: FC<{ childToParent: (data: string) => void }> = ({
@@ -49,10 +49,10 @@ const Form: FC<{ childToParent: (data: string) => void }> = ({
 				/>
 				<button
 					className='btn-sub'
-					onClick={(e) =>{
+					onClick={(e) => {
 						e.preventDefault();
-						childToParent(nameInput);}
-					}>
+						childToParent(nameInput);
+					}}>
 					Go
 				</button>
 			</form>

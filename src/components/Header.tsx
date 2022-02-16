@@ -1,7 +1,7 @@
 // create a header component
-import logo from '../mock/manifest-icon-192.maskable.png';
+import logo from "../mock/manifest-icon-192.maskable.png";
 const Header = () => {
-  const width = '80em';
+	const width = "80em";
 	return (
 		<>
 			<style>{`
@@ -15,10 +15,10 @@ const Header = () => {
         text-align: center;
       }
     `}</style>
-    <div className='topbar'>
-      <img src={logo} alt='logo' width={width} />
-			<h1 className='header'>Weatherly</h1>
-    </div>
+			<div className='topbar'>
+				<img src={logo} alt='logo' width={width} />
+				<h1 className='header'>Weatherly</h1>
+			</div>
 		</>
 	);
 };

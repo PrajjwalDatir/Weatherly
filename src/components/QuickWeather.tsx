@@ -3,19 +3,21 @@ import Form from "./Form";
 
 const QuickWeather = () => {
 	const [weather, setWeather] = useState<any>(null);
-	useEffect(() => {
-	}, [weather]);
+	useEffect(() => {}, [weather]);
 
-	const childToParent = (city : string) => {
+	const childToParent = (city: string) => {
 		getWeather(city).then(setWeather);
 		return null;
-	}
+	};
 
-	return !(weather) ? (
-    <>
-    <Form childToParent={childToParent}></Form>
-		<p style={{textAlign : "center", color : "gray"}}> Waiting for data ...</p>
-    </>
+	return !weather ? (
+		<>
+			<Form childToParent={childToParent}></Form>
+			<p style={{ textAlign: "center", color: "gray" }}>
+				{" "}
+				Waiting for data ...
+			</p>
+		</>
 	) : (
 		<>
 			<style>
@@ -31,10 +33,10 @@ const QuickWeather = () => {
       }
     `}
 			</style>
-      <Form childToParent={childToParent}></Form>
+			<Form childToParent={childToParent}></Form>
 			<div className='quick-weather'>
 				{/* <img src={logo} alt="logo" /> */}
-				<h3>Temprature 🌡️ {(weather.main.feels_like - 273).toFixed(1)}° C</h3>
+				<p>Temprature 🌡️ {(weather.main.feels_like - 273).toFixed(1)}° C</p>
 				<p>Wind 🎐 {weather.wind.speed}</p>
 				<p>Humidity 🎏 {weather.main.humidity}</p>
 				<p>
