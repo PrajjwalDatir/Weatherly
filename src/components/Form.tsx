@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
+import { FC } from 'react'
 import Input from "./Input";
-
-const Form = ({city : string}) => {
+const Form: FC<{  childToParent: (data: string) => void  }> = ({childToParent}) => {
 	const [nameInput, setNameInput] = useState("");
 	const onChange = (str: string) => {
 		setNameInput(str);
@@ -46,16 +45,12 @@ const Form = ({city : string}) => {
 					placeholder='Enter your city name'
 					value={nameInput}
 				/>
-				<button className='btn-sub' onClick={submitForm}>
+				<button className='btn-sub' onClick={() => childToParent(nameInput)}>
 					Go
 				</button>
 			</form>
 		</>
 	);
-	function submitForm(this: any) {
-		console.log(nameInput);
-		this.props.city = nameInput;
-	}
 };
 
 export default Form;

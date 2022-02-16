@@ -5,12 +5,18 @@ const QuickWeather = () => {
 	const [weather, setWeather] = useState<any>(null);
   const [city, setCity] = useState("");
 	useEffect(() => {
-		getWeather(city).then(setWeather);
-	}, [city, weather]);
+		console.log(weather);
+	}, [weather]);
 
-	return !weather ? (
+	const childToParent = (data : string) => {
+		setCity(data);
+		getWeather(city).then(setWeather);
+		return null;
+	}
+
+	return !(weather) ? (
     <>
-    <Form setCity={setCity}></Form>
+    <Form childToParent={childToParent}></Form>
 		<p>Loading...</p>
     </>
 	) : (
@@ -28,7 +34,7 @@ const QuickWeather = () => {
       }
     `}
 			</style>
-      <Form setCity={setCity}></Form>
+      <Form childToParent={childToParent}></Form>
 			<div className='quick-weather'>
 				{/* <img src={logo} alt="logo" /> */}
 				<h3>Temprature 🌡️ {(weather.main.feels_like - 273).toFixed(1)}° C</h3>
