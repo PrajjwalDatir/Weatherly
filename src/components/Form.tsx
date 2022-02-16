@@ -52,6 +52,7 @@ const Form: FC<{ childToParent: (data: string) => void }> = ({
 					onClick={(e) => {
 						e.preventDefault();
 						childToParent(nameInput);
+						setNameInput(nameInput);
 					}}>
 					Go
 				</button>
