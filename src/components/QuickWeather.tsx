@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { REACT_APP_API_KEY } from "../Globals";
 import Form from "./Form";
 
 const QuickWeather = () => {
@@ -49,7 +50,7 @@ const QuickWeather = () => {
 
 const getWeather = async (city: string) => {
 	const Weather = await fetch(
-		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=dc104db50e560b1ba4852e7fd7a92a9b`
+		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}`
 	);
 	const data = await Weather.json();
 	return data;
