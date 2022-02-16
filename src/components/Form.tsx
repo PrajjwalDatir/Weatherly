@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { FC } from 'react'
+import { FC } from "react";
 import Input from "./Input";
-const Form: FC<{  childToParent: (data: string) => void  }> = ({childToParent}) => {
+const Form: FC<{ childToParent: (data: string) => void }> = ({
+	childToParent,
+}) => {
 	const [nameInput, setNameInput] = useState("");
 	const onChange = (str: string) => {
 		setNameInput(str);
@@ -45,7 +47,12 @@ const Form: FC<{  childToParent: (data: string) => void  }> = ({childToParent}) 
 					placeholder='Enter your city name'
 					value={nameInput}
 				/>
-				<button className='btn-sub' onClick={() => childToParent(nameInput)}>
+				<button
+					className='btn-sub'
+					onClick={(e) =>{
+						e.preventDefault();
+						childToParent(nameInput);}
+					}>
 					Go
 				</button>
 			</form>

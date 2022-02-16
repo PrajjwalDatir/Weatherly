@@ -3,13 +3,10 @@ import Form from "./Form";
 
 const QuickWeather = () => {
 	const [weather, setWeather] = useState<any>(null);
-  const [city, setCity] = useState("");
 	useEffect(() => {
-		console.log(weather);
 	}, [weather]);
 
-	const childToParent = (data : string) => {
-		setCity(data);
+	const childToParent = (city : string) => {
 		getWeather(city).then(setWeather);
 		return null;
 	}
@@ -17,7 +14,7 @@ const QuickWeather = () => {
 	return !(weather) ? (
     <>
     <Form childToParent={childToParent}></Form>
-		<p>Loading...</p>
+		<p style={{textAlign : "center", color : "gray"}}> Waiting for data ...</p>
     </>
 	) : (
 		<>
